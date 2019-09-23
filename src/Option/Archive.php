@@ -122,7 +122,7 @@ final class Archive
         return $this->comment;
     }
 
-    public function setComment(string $comment): void
+    public function setComment(string $comment)
     {
         $this->comment = $comment;
     }
@@ -132,7 +132,7 @@ final class Archive
         return $this->largeFileSize;
     }
 
-    public function setLargeFileSize(int $largeFileSize): void
+    public function setLargeFileSize(int $largeFileSize)
     {
         $this->largeFileSize = $largeFileSize;
     }
@@ -142,7 +142,7 @@ final class Archive
         return $this->largeFileMethod;
     }
 
-    public function setLargeFileMethod(Method $largeFileMethod): void
+    public function setLargeFileMethod(Method $largeFileMethod)
     {
         $this->largeFileMethod = $largeFileMethod;
     }
@@ -152,7 +152,7 @@ final class Archive
         return $this->sendHttpHeaders;
     }
 
-    public function setSendHttpHeaders(bool $sendHttpHeaders): void
+    public function setSendHttpHeaders(bool $sendHttpHeaders)
     {
         $this->sendHttpHeaders = $sendHttpHeaders;
     }
@@ -162,7 +162,7 @@ final class Archive
         return $this->httpHeaderCallback;
     }
 
-    public function setHttpHeaderCallback(Callable $httpHeaderCallback): void
+    public function setHttpHeaderCallback(Callable $httpHeaderCallback)
     {
         $this->httpHeaderCallback = $httpHeaderCallback;
     }
@@ -172,7 +172,7 @@ final class Archive
         return $this->enableZip64;
     }
 
-    public function setEnableZip64(bool $enableZip64): void
+    public function setEnableZip64(bool $enableZip64)
     {
         $this->enableZip64 = $enableZip64;
     }
@@ -182,7 +182,7 @@ final class Archive
         return $this->zeroHeader;
     }
 
-    public function setZeroHeader(bool $zeroHeader): void
+    public function setZeroHeader(bool $zeroHeader)
     {
         $this->zeroHeader = $zeroHeader;
     }
@@ -192,7 +192,7 @@ final class Archive
         return $this->flushOutput;
     }
 
-    public function setFlushOutput(bool $flushOutput): void
+    public function setFlushOutput(bool $flushOutput)
     {
         $this->flushOutput = $flushOutput;
     }
@@ -202,7 +202,7 @@ final class Archive
         return $this->statFiles;
     }
 
-    public function setStatFiles(bool $statFiles): void
+    public function setStatFiles(bool $statFiles)
     {
         $this->statFiles = $statFiles;
     }
@@ -212,7 +212,7 @@ final class Archive
         return $this->contentDisposition;
     }
 
-    public function setContentDisposition(string $contentDisposition): void
+    public function setContentDisposition(string $contentDisposition)
     {
         $this->contentDisposition = $contentDisposition;
     }
@@ -222,7 +222,7 @@ final class Archive
         return $this->contentType;
     }
 
-    public function setContentType(string $contentType): void
+    public function setContentType(string $contentType)
     {
         $this->contentType = $contentType;
     }
@@ -238,7 +238,7 @@ final class Archive
     /**
      * @param resource $outputStream
      */
-    public function setOutputStream($outputStream): void
+    public function setOutputStream($outputStream)
     {
         $this->outputStream = $outputStream;
     }
@@ -254,7 +254,7 @@ final class Archive
     /**
      * @param int $deflateLevel
      */
-    public function setDeflateLevel(int $deflateLevel): void
+    public function setDeflateLevel(int $deflateLevel)
     {
         $this->deflateLevel = $deflateLevel;
     }

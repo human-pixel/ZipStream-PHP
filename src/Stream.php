@@ -29,10 +29,8 @@ class Stream implements StreamInterface
 
     /**
      * Closes the stream and any underlying resources.
-     *
-     * @return void
      */
-    public function close(): void
+    public function close()
     {
         if (is_resource($this->stream)) {
             fclose($this->stream);
@@ -88,7 +86,7 @@ class Stream implements StreamInterface
      *     SEEK_END: Set position to end-of-stream plus offset.
      * @throws \RuntimeException on failure.
      */
-    public function seek($offset, $whence = SEEK_SET): void
+    public function seek($offset, $whence = SEEK_SET)
     {
         if (!$this->isSeekable()) {
             throw new RuntimeException;
@@ -131,7 +129,7 @@ class Stream implements StreamInterface
      *
      * @return int|null Returns the size in bytes if known, or null if unknown.
      */
-    public function getSize(): ?int
+    public function getSize()
     {
         $stats = fstat($this->stream);
         return $stats['size'];
@@ -172,7 +170,7 @@ class Stream implements StreamInterface
      * @link http://www.php.net/manual/en/function.fseek.php
      * @throws \RuntimeException on failure.
      */
-    public function rewind(): void
+    public function rewind()
     {
         $this->seek(0);
     }
