@@ -294,6 +294,48 @@ class ZipStream
     }
 
     /**
+     * addFileFromStreamChunk
+     *
+     * Add an open stream and start from `offset` to the archive.
+     *
+     * @param String $name - path of file in archive (including directory).
+     * @param Resource $stream - contents of file as a stream resource
+     * @param FileOptions $options
+     * @param int $chunkOffset - the offset where the reading starts on the original stream
+     * @param int $chunkSize - maximum length of data read
+     *
+     * File Options:
+     *  time     - Last-modified timestamp (seconds since the epoch) of
+     *             this file.  Defaults to the current time.
+     *  comment  - Comment related to this file.
+     *
+     * Examples:
+     *
+     *   // create a temporary file stream and write text to it
+     *   $fp = tmpfile();
+     *   fwrite($fp, 'The quick brown fox jumped over the lazy dog.');
+     *
+     *   // add a file named 'streamfile.txt' from the content of the stream
+     *   $x->addFileFromStream('streamfile.txt', $fp, null, 36, 8);
+     */
+    public function addFileFromStreamChunk(
+        string $name,
+        $stream,
+        FileOptions $options = null,
+        $chunkOffset = 0,
+        $chunkSize = null
+    ) {
+        $options = $options ?: new FileOptions();
+        if (!$options->getSize() && !is_null($chunkSize)) {
+            $options->setSize($chunkSize);
+        }
+        $options->defaultTo($this->opt);
+
+        $file = new File($this, $name, $options);
+        $file->processStream(new DeflateStreamChunk($stream, $chunkOffset, $chunkSize));
+    }
+
+    /**
      * addFileFromPsr7Stream
      *
      * Add an open stream to the archive.
